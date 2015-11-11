@@ -1,0 +1,5 @@
+package com.patters.strategy.boxing
+
+public interface BoxingStrategy{
+	public void boxerName(String boxerName);
+}

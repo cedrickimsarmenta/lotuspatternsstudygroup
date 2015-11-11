@@ -1,0 +1,8 @@
+package com.patters.strategy.boxing
+
+public class PowerStrategy implements BoxingStrategy{
+	@Override
+	public void boxerName(String boxerName){
+	System.out.println("yow, "+boxerName+"! The 90% of your punches must possess the ability to knock the opponent down");
+	}	
+}

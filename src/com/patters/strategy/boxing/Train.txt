@@ -1,0 +1,12 @@
+package com.patters.strategy.boxing
+
+public class Train {
+private BoxingStrategy boxingStrategy;
+
+public Train(BoxingStrategy boxingStrategy){
+		this.boxingStrategy = boxingStrategy;
+	}
+public void doTrainingWith(String boxerName){
+		this.boxingStrategy.boxerName(boxerName);
+	}  
+}

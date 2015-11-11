@@ -1,0 +1,9 @@
+
+package com.patters.strategy.boxing
+
+public class CleverStrategy implements BoxingStrategy{
+	@Override
+	public void boxerName(String boxerName){
+	System.out.println("hey, "+boxerName+"! You have to take advantage when your opponent is open, throw 1-2 punches at a time");
+	}	
+}

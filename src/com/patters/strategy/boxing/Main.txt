@@ -1,0 +1,18 @@
+package com.patters.strategy.boxing
+
+public class Main{
+	public static void main(String args[]){
+		BoxingStrategy fundamentalStrategy = new FundamentalStrategy();	
+		BoxingStrategy powerStrategy = new PowerStrategy();
+		BoxingStrategy cleverStrategy = new CleverStrategy();	
+
+		Train training1 = new Train(fundamentalStrategy);
+		Train training2 = new Train(powerStrategy);
+		Train training3 = new Train(cleverStrategy);
+
+		training1.doTrainingWith("Oscar De La Hoya");
+		training2.doTrainingWith("Manny Pacquiao");
+		training3.doTrainingWith("Floyd Mayweather");
+		
+		}
+	}

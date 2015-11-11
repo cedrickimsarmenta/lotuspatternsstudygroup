@@ -1,0 +1,8 @@
+package com.patters.strategy.boxing
+
+public class FundamentalStrategy implements BoxingStrategy{
+	@Override
+	public void boxerName(String boxerName){
+	System.out.println(boxerName+"!, You have to focus on scoring and you need to hit and not be hit");
+	}	
+}
