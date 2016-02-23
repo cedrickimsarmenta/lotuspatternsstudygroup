@@ -10,11 +10,11 @@ public abstract class CargoDelivery{
 		
 	}
 	protected void loadCargo(){
-		System.out.println("Loading cargo in " + getVehicleType);
+//		System.out.println("Loading cargo in " + getVehicleType);
 		
 	}
 	protected void unloadCargo(){
-		System.out.println("Unloading cargo from " + getVehicleType);
+//		System.out.println("Unloading cargo from " + getVehicleType);
 	}
 	
 	protected abstract void transport();
