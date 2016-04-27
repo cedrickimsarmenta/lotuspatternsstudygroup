@@ -13,10 +13,16 @@ public class FooTest {
 	public void testFooBar(@Mock(classMock = Foo.class)Foo myFoo, @Mock(classMock = Bar.class)Bar myBar) {
 		System.out.println("Foo name: " + myFoo.getName() + " Bar description: " + myBar.getDescription());
 	}
+
 	
 	@CUnitTest
 	public void testNOthing() {
 		System.out.println("THIS CLASS HAS NO MOCKED PARAMS");
+	}
+
+	@CUnitTest
+	public void testFooBarDefaultMock(@DefaultMock Foo myFoo, @DefaultMock Bar myBar) {
+		System.out.println("Foo name: " + myFoo.getName() + " Bar description: " + myBar.getDescription());
 	}
 	
 	public void notATest() {

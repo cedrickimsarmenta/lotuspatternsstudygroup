@@ -26,11 +26,21 @@ public class CunitRunner {
     				//Mocking mechanisms
     				if(mockAnnotation.classMock().equals(Foo.class)) {
     					Foo mockFoo = new Foo();
-    					mockFoo.setName("Default foo name");
+    					mockFoo.setName("Mock foo name");
         				mockedParameters.add(mockFoo);
     				} else if (mockAnnotation.classMock().equals(Bar.class)) {
     					Bar mockBar = new Bar();
-    					mockBar.setDescription("Default bar decription");
+    					mockBar.setDescription("Mock bar decription");
+    					mockedParameters.add(mockBar);
+    				}
+    			} else if(p.isAnnotationPresent(DefaultMock.class)) {
+    				if(p.getType().equals(Foo.class)) {
+    					Foo mockFoo = new Foo();
+    					mockFoo.setName("Default Mock foo name");
+        				mockedParameters.add(mockFoo);
+    				} else if (p.getType().equals(Bar.class)) {
+    					Bar mockBar = new Bar();
+    					mockBar.setDescription("Default Mock bar decription");
     					mockedParameters.add(mockBar);
     				}
     			}
