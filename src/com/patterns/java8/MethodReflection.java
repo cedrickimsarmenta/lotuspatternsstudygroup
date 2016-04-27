@@ -1,13 +1,17 @@
 package com.patterns.java8;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
+/**
+ * Note, you have to compile with -parameters for this to work.
+ * For eclipse, see: http://www.concretepage.com/java/jdk-8/java-8-reflection-access-to-parameter-names-of-method-and-constructor-with-maven-gradle-and-eclipse-using-parameters-compiler-argument
+ * @author cedric
+ *
+ */
 public class MethodReflection {
 	
 	
@@ -120,7 +124,7 @@ public class MethodReflection {
 	 * Only use reflections when you have to.
 	 * CONS:
 	 * 1. Slower than normal method invocation
-	 * 2. Dangerous (lots of possibilities for Exceptions, what if the names change?)
+	 * 2. Dangerous (lots of possibilities for Exceptions, if you are not careful.
 	 * 
 	 * PROS:
 	 * 1. Useful when you cannot pre-determine the appropriate method to use (eg, mapping excel fields based on column header) 
