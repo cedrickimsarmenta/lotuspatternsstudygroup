@@ -1,8 +1,12 @@
 package com.patterns.java8;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class MethodReflection {
 	
@@ -33,6 +37,9 @@ public class MethodReflection {
 
 		foo.setWinningFeedCodesOldSchool(dividend, feedCodes);
 		System.out.println(dividend);
+		
+		
+		System.out.println("REFLECTIOn");
 		
 		dividend = new HorseRacingDividend();
 		feedCodes = Arrays.asList("BGC:123", "BGC:246");
@@ -83,9 +90,24 @@ public class MethodReflection {
 		Class<HorseRacingDividend> clz = HorseRacingDividend.class;
 		int idx = 1;
 		for(String feedCode: feedCodes) {
-			String setterName = "setOutcomeFeedCode" + idx++;
 			try {
-				clz.getDeclaredMethod(setterName, String.class).invoke(dividend, feedCode);
+				for(Method m : clz.getDeclaredMethods()) {
+					Parameter[] parameters = m.getParameters();
+					if(parameters.length == 1) {
+						Parameter p = parameters[0];
+						
+						if(!p.isAnnotationPresent(WinnerFeedCode.class)) {
+							continue;
+						}
+						
+						WinnerFeedCode winnerFeedCode = p.getDeclaredAnnotationsByType(WinnerFeedCode.class)[0];
+						
+						if(winnerFeedCode.index() == idx) {
+							m.invoke(dividend, feedCode);	
+						}
+					}
+				}
+			idx++;	
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
