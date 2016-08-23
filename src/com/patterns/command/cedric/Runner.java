@@ -65,17 +65,18 @@ public class Runner {
 		System.out.println("[2] Draw dot (2-x-y)");
 		System.out.println("[3] Draw x (3-x-y-size)");
 		System.out.println("[4] Draw Square (4-x-y-size)");
-		System.out.println("[5] Undo");
-		System.out.println("[6] Redo");
-		System.out.println("[7] Show commands");
-		System.out.println("[8] Exit");
+		System.out.println("[5] Erase (7-x-y)");
+		System.out.println("[6] Undo");
+		System.out.println("[7] Redo");
+		System.out.println("[8] Show commands");
+		System.out.println("[9] Exit");
 		
 
 		InputStreamReader in=new InputStreamReader(System.in);
 		BufferedReader br=new BufferedReader(in);
 		String choice = br.readLine();
 		
-		if(choice.equals("8")) {
+		if(choice.equals("9")) {
 		   	System.out.println("See you later alligator");
 			return;
 		} else if (choice.equals("1")) {
@@ -98,15 +99,21 @@ public class Runner {
 			command.draw(window);
 			commands.push(command);
 			undoStack.clear();
-		} else if (choice.equals("5")) {
+		} else if (choice.equals("6")) {
 			DrawCommand command = commands.pop();
 			command.undo(window);
 			undoStack.push(command);
-		} else if (choice.equals("6")) {
+		} else if (choice.equals("7")) {
 			DrawCommand command = undoStack.pop();
 			command.draw(window);
 			commands.push(command);
-		} else if (choice.equals("7")) {
+		} else if (choice.startsWith("5")) {
+			String[] parts = choice.split("-");
+			DrawCommand command = new Eraser(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+			command.draw(window);
+			commands.push(command);
+			undoStack.clear();
+		} else if (choice.equals("8")) {
 			System.out.println(Arrays.toString(commands.toArray()));
 		} else {
 			System.out.println("Unrecognized command");
