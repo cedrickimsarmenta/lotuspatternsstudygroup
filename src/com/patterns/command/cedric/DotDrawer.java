@@ -8,7 +8,7 @@ public class DotDrawer extends AbstractDrawer {
 
 	@Override
 	public void draw(Window window) {
-		drawPixel(getxCoordinate(), getxCoordinate(), window, DOT_CHARACTER);
+		drawPixel(getxCoordinate(), getyCoordinate(), window, DOT_CHARACTER);
 	}
 
 	@Override
