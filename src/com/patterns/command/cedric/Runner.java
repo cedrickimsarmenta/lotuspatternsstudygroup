@@ -52,16 +52,17 @@ public class Runner {
 			System.out.println("[1] Show screen");
 			System.out.println("[2] Draw dot (2-x-y)");
 			System.out.println("[3] Draw x (3-x-y-size)");
-			System.out.println("[4] Undo last");
-			System.out.println("[5] Show commands");
-			System.out.println("[6] Exit");
+			System.out.println("[4] Draw Square (4-x-y-size)");
+			System.out.println("[5] Undo last");
+			System.out.println("[6] Show commands");
+			System.out.println("[7] Exit");
 			
 
 		    InputStreamReader in=new InputStreamReader(System.in);
 		    BufferedReader br=new BufferedReader(in);
 		    String choice = br.readLine();
 		    
-		    if(choice.equals("6")) {
+		    if(choice.equals("7")) {
 		       	System.out.println("See you later alligator");
 		    	break;
 		    } else if (choice.equals("1")) {
@@ -76,10 +77,15 @@ public class Runner {
 		    	DrawCommand command = new XDrawer(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
 		    	command.draw(window);
 		    	commands.push(command);
-		    } else if (choice.equals("4")) {
+		    } else if (choice.startsWith("4")) {
+		    	String[] parts = choice.split("-");
+		    	DrawCommand command = new SquareDrawer(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
+		    	command.draw(window);
+		    	commands.push(command);
+		    } else if (choice.equals("5")) {
 		    	DrawCommand command = commands.pop();
 		    	command.undo(window);
-		    }else if (choice.equals("5")) {
+		    }else if (choice.equals("6")) {
 		    	System.out.println(Arrays.toString(commands.toArray()));
 		    } else {
 		    	System.out.println("Unrecognized command");
