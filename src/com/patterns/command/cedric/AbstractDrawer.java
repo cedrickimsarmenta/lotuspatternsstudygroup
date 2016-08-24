@@ -2,6 +2,14 @@ package com.patterns.command.cedric;
 
 import java.util.HashMap;
 import java.util.Map;
+//Invoker >> 
+//Sya yung nag eexecute ng command - PAU
+//Sya ung nag hahanap ng mag eexecute ng command - Troy
+//Receiver >> Sya ung context ng command
+//Client >> sets commands which will be used during execution
+//Command >> object representing request, and can perform execute action.
+
+//Motivation
 
 public abstract class AbstractDrawer implements DrawCommand{
 	/**
