@@ -2,13 +2,13 @@ package com.patterns.command.cedric;
 
 public class DotDrawer extends AbstractDrawer {
 	private static final String DOT_CHARACTER ="*";
-	public DotDrawer(int xCoordinate, int yCoordinate) {
-		super(xCoordinate, yCoordinate);
+	public DotDrawer(Window window, int xCoordinate, int yCoordinate) {
+		super(window, xCoordinate, yCoordinate);
 	}
 
 	@Override
-	public void draw(Window window) {
-		drawPixel(getxCoordinate(), getyCoordinate(), window, DOT_CHARACTER);
+	public void draw() {
+		drawPixel(getxCoordinate(), getyCoordinate(), DOT_CHARACTER);
 	}
 
 	@Override

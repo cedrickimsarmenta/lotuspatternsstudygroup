@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * The receiver of a comman
+ * @author cedric
+ *
+ */
 public class Window {
 	/**
 	 * Key is row number
