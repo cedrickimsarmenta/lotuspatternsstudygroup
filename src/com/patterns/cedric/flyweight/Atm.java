@@ -32,14 +32,19 @@ public class Atm extends AbstractBillOwner {
 					throw new WithdarawalException("Un-able to process transaction. Sorry for the inconvenience. (This atm poor lol!)");
 				}
 				
+				
+				List<Bill> billsCopy = new ArrayList<>();
+				billsCopy.addAll(availableBills);
+				
 				//We may need to rollback
 				List<Bill> originalBills = new ArrayList<>();
 				originalBills.addAll(availableBills);
 				
+			
 				List<Bill> acountBills = new ArrayList<>();
 				acountBills.addAll(account.getBills());
 				
-				java.util.Collections.sort(availableBills, new Comparator<Bill>() {
+				java.util.Collections.sort(billsCopy, new Comparator<Bill>() {
 					@Override
 					public int compare(Bill o1, Bill o2) {
 						return o2.getAmount().compareTo(o1.getAmount());
@@ -51,15 +56,10 @@ public class Atm extends AbstractBillOwner {
 					//The amount requested is smaller than the smallest bill
 					throw new WithdarawalException("Un-able to process transaction. Please choose amount at least " + smallestBill.getAmount());
 				}
-				Iterator<Bill> billsIterator =  availableBills.iterator();
-				while(billsIterator.hasNext()) {
-					Bill bill = billsIterator.next();
+				for(Bill bill : billsCopy){
 					if(amount - bill.getAmount() >= 0) {
 						amount -= bill.getAmount();
-						
-						account.addBill(bill);
-						billsIterator.remove();
-						
+						bill.transfer(this, account);
 						if(amount == 0) {
 							break;
 						}
@@ -87,6 +87,7 @@ public class Atm extends AbstractBillOwner {
 		
 	}
 
+	
 	@Override
 	public List<Bill> getBills() {
 		List<Bill> bills = new ArrayList<>();
@@ -109,6 +110,23 @@ public class Atm extends AbstractBillOwner {
 		if(bills.size() > 0) {
 			this.billsPerCurrency.put(bills.get(0).getCurrencyCode(), bills);
 		}
+	}
+
+	@Override
+	public void removeBill(Bill bill) {
+		if(billsPerCurrency.get(bill.getCurrencyCode()) != null) {
+			List<Bill> bills = billsPerCurrency.get(bill.getCurrencyCode());
+			int firstOccurance = bills.indexOf(bill);
+			
+			if(firstOccurance >= 0) {
+				bills.remove(firstOccurance);
+				return;
+			}
+			
+		}
+		
+		throw new RuntimeException("Bill does not exist");
+		
 	}
 	
 }

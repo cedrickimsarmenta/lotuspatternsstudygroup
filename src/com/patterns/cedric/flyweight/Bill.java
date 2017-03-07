@@ -1,9 +1,7 @@
 package com.patterns.cedric.flyweight;
 
-import java.security.acl.Owner;
 
 public class Bill implements BillFlyweight {
-	private Owner owner;
 	private String currencyCode;
 	private Integer amount;
 	@Override
@@ -23,8 +21,9 @@ public class Bill implements BillFlyweight {
 	}
 	
 	@Override
-	public void assign(BillOwner originalOwner, BillOwner newOwner) {
+	public void transfer(BillOwner originalOwner, BillOwner newOwner) {
 		newOwner.addBill(this);
+		originalOwner.removeBill(this);
 	}
 	
 }

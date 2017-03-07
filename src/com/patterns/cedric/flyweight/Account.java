@@ -35,4 +35,16 @@ public class Account extends AbstractBillOwner{
 		return currency;
 	}
 
+	@Override
+	public void removeBill(Bill bill) {
+		int firstOccurance = bills.indexOf(bill);
+		
+		if(firstOccurance >= 0) {
+			bills.remove(firstOccurance);
+			return;
+		}
+		
+		throw new RuntimeException("Bill does not exist");
+	}
+
 }

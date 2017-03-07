@@ -11,9 +11,7 @@ public class Runner {
 		bpiAtm.addBills(createMultipleBills("PHP", 100, 5));
 		bpiAtm.addBills(createMultipleBills("PHP", 1000, 5));
 		bpiAtm.printBills();
-//		bpiAtm.printBills();
 		doWithdraw(bpiAtm, account, 1200);
-//		bpiAtm.printBills();
 		bpiAtm.printBills();
 		account.printBills();
 		doWithdraw(bpiAtm, account, 200);

@@ -10,4 +10,5 @@ public interface BillOwner {
 	public void addBill(Bill bill);
 	public void addBills(List<Bill> bill);
 	public void printBills();
+	public void removeBill(Bill bill);
 }
