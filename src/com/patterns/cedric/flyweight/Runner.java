@@ -5,33 +5,31 @@ import java.util.List;
 
 public class Runner {
 	public static void main(String args[]) {
-		Atm bpiAtm = new Atm();
-		bpiAtm.reload(createMultipleBills("PHP", 100, 5));
-		bpiAtm.reload(createMultipleBills("PHP", 1000, 5));
+		Atm bpiAtm = new Atm("BPI");
+		Account account = new Account("Cedric", "PHP");
+		
+		bpiAtm.addBills(createMultipleBills("PHP", 100, 5));
+		bpiAtm.addBills(createMultipleBills("PHP", 1000, 5));
+		bpiAtm.printBills();
 //		bpiAtm.printBills();
-		printBills(doWithdraw(bpiAtm, "PHP", 1200));
+		doWithdraw(bpiAtm, account, 1200);
 //		bpiAtm.printBills();
-
-		printBills(doWithdraw(bpiAtm, "PHP", 300));
-
-		printBills(doWithdraw(bpiAtm, "PHP", 200));
+		bpiAtm.printBills();
+		account.printBills();
+		doWithdraw(bpiAtm, account, 200);
+		bpiAtm.printBills();
+		account.printBills();
+		doWithdraw(bpiAtm, account, 200);
+		bpiAtm.printBills();
+		account.printBills();
 	}
 	
-	private static List<Bill> doWithdraw(Atm atm, String currency, Integer amount){
+	private static void doWithdraw(Atm atm, Account account, Integer amount){
 		try {
-			return atm.withdraw(currency, amount);
+			atm.withdraw(amount,account);
 		} catch (WithdarawalException e) {
 			System.out.println(e.getMessage());
-			
-			return new ArrayList<Bill>();
 		}
-	}
-	private static void printBills(List<Bill> bills) {
-		System.out.println("Withdarwal info:");
-		for(Bill bill: bills) {
-			System.out.println("Withdrawn" + bill);
-		}
-		
 	}
 	private static List<Bill> createMultipleBills(String currency, Integer denomination, int number) {
 		List<Bill> bills = new ArrayList<>();
