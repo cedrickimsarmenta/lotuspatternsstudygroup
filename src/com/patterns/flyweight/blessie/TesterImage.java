@@ -1,6 +1,10 @@
 package com.patterns.flyweight.blessie;
 
-public class TesterImage implements Image {
+public class TesterImage extends DefaultImage {
+	
+	public TesterImage() {
+		System.out.println("Loading tester libraries...");
+	}
 
 	@Override
 	public void performAction() {

@@ -1,6 +1,10 @@
 package com.patterns.flyweight.blessie;
 
-public class DeveloperImage implements Image {
+public class DeveloperImage extends DefaultImage {
+	
+	public DeveloperImage() {
+		System.out.println("Loading developer libraries...");
+	}
 
 	@Override
 	public void performAction() {

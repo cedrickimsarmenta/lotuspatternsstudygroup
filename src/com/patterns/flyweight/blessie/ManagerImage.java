@@ -1,6 +1,10 @@
 package com.patterns.flyweight.blessie;
 
-public class ManagerImage implements Image {
+public class ManagerImage extends DefaultImage {
+	
+	public ManagerImage() {
+		System.out.println("Loading manager libraries...");
+	}
 
 	@Override
 	public void performAction() {
