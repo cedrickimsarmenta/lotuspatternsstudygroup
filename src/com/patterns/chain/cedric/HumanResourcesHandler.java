@@ -2,8 +2,6 @@ package com.patterns.chain.cedric;
 
 public class HumanResourcesHandler extends  AbstractLeaveApprovalHandler {
 	public HumanResourcesHandler() {
-		//If all the rules are followed, try to send tot the suppervisor for approval
-		this.setNext(new SupervisorHandler());
 	} 
 	
 	@Override

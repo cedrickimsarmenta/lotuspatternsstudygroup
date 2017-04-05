@@ -9,11 +9,9 @@ public class SupervisorHandler extends AbstractLeaveApprovalHandler{
 	private Set<String> absentSupervisors = new HashSet();
 	
 	public SupervisorHandler() {
-		//If supervisor is absent, notify the office manager
-		this.setNext( new OfficeManagerHandler());
 		//A list of absent supervisors!
-		absentSupervisors.add("GASTON");
-		absentSupervisors.add("OLAF");
+		absentSupervisors.add("TYWIN");
+		absentSupervisors.add("THEON");
 	}
 	
 	@Override
@@ -21,6 +19,8 @@ public class SupervisorHandler extends AbstractLeaveApprovalHandler{
 		if(!absentSupervisors.contains(request.getEmployeeDetails().getSupervisor())) {
 			System.out.println("PENDING! The request has been forwarded to your supervisor " + request.getEmployeeDetails().getSupervisor() + " for approval");
 		} else {
+			System.out.println("Your supervisor " + request.getEmployeeDetails().getSupervisor() + " is ABSENT!!");
+			
 			callnext(request);
 		}
 		

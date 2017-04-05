@@ -2,8 +2,6 @@ package com.patterns.chain.cedric;
 
 public class CEOHandler extends AbstractLeaveApprovalHandler {
 	public CEOHandler () {
-		//Unless you are the CEO, you must go through Human Resources!
-		this.setNext(new HumanResourcesHandler());
 	}
 	@Override
 	public void handle(LeaveRequest request) {
