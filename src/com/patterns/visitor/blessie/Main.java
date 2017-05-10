@@ -7,11 +7,11 @@ public class Main {
 		FemaleCustomer female = new FemaleCustomer();
 		MaleCustomer male = new MaleCustomer();
 		
-		ExpertBarberVisitor expert = new ExpertBarberVisitor();
+		BarberVisitor expert = new ExpertBarberVisitor();
 		expert.visit(female);
 		expert.visit(male);
 		
-		NewbieBarberVisitor newbie = new NewbieBarberVisitor();
+		BarberVisitor newbie = new NewbieBarberVisitor();
 		newbie.visit(female);
 		newbie.visit(male);
 	}
