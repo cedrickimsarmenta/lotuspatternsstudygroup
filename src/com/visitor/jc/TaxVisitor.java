@@ -21,7 +21,7 @@ public class TaxVisitor implements Visitor {
 		
 	public double visit(Necessity necessityItem) {
 		System.out.println("Necessity Item: Price with Tax");
-		return Double.parseDouble(df.format(necessityItem.getPrice() * 0 ));
+		return Double.parseDouble(df.format(necessityItem.getPrice() * 2 ));
 	}
 	
 	public double visit(Liquor liquor){

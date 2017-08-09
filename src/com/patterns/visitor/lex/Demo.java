@@ -11,6 +11,11 @@ public class Demo {
 		debtors.add(new SeniorCitizen(10000));
 		debtors.add(new Parent(10000));
 		
+		for (Debtor debtor : debtors) {
+		    
+		}
+		
+		
 		CollectLoanVisitor creditor = new FiftySixerCollector();
 		for (Debtor debtor : debtors) {
 			debtor.accept(creditor);

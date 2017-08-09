@@ -5,7 +5,7 @@ public class Attack1Visitor implements WeaponVisitor {
 	@Override
 	public void visit(AK47 ak47) {
 		if(ak47.getRemainingRounds() > 0) {
-			System.out.println("BRATATATATATATAT!");
+			System.out.println("BABANG!");
 			ak47.setRemainingRounds(ak47.getRemainingRounds()-1);
 			System.out.println("Remaining bullets: "  + ak47.getRemainingRounds());
 			

@@ -8,12 +8,17 @@ public class Main {
 		MaleCustomer male = new MaleCustomer();
 		
 		BarberVisitor expert = new ExpertBarberVisitor();
-		expert.visit(female);
-		expert.visit(male);
+//		expert.visit(female);
+//		expert.visit(male);
 		
 		BarberVisitor newbie = new NewbieBarberVisitor();
-		newbie.visit(female);
-		newbie.visit(male);
+//		newbie.visit(female);
+//		newbie.visit(male);
+		female.accept(expert);
+		male.accept(expert);
+		
+		female.accept(newbie);
+		male.accept(newbie);
 	}
 
 }

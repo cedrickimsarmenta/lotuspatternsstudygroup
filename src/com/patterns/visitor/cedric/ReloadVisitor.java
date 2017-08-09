@@ -18,7 +18,7 @@ public class ReloadVisitor implements WeaponVisitor {
 
 	@Override
 	public void visit(Knife knife) {
-		//You can reload a knife fool!
+		//You cant reload a knife fool!
 	}
 
 }
