@@ -5,7 +5,6 @@ public class ExpertBarberVisitor implements BarberVisitor{
 	@Override
 	public void visit(MaleCustomer c) {
 		preTreatmentActions(c.getClass().getSimpleName());
-		c.accept(this);
 		System.out.println("ExpertBarber offers the customer a shave.");
 		postTreatmentActions();
 	}
@@ -14,7 +13,6 @@ public class ExpertBarberVisitor implements BarberVisitor{
 	public void visit(FemaleCustomer c) {
 		preTreatmentActions(c.getClass().getSimpleName());
 		System.out.println("ExpertBarber offers the customer a magazine.");
-		c.accept(this);
 		System.out.println("ExpertBarber offers the customer another hair treatment.");
 		postTreatmentActions();
 	}

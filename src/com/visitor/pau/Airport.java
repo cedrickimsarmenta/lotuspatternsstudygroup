@@ -11,10 +11,10 @@ public class Airport {
         pau.setHasPassport(true);
         Luggage luggage = new Luggage();
         luggage.add(new Item("underwear", 1));
-        luggage.add(new Item("shoeticketNumbers", 3));
+        luggage.add(new Item("shoes", 3));
         pau.setLuggage(luggage);
 
-        AirlineVisitor united = new UnitedAirlines();
+        AirlineVisitor united = new CebuPacific();
         pau.accept(united);
         if(pau.getTicketNumber() != null) {
             System.out.println("I'm flying!");
