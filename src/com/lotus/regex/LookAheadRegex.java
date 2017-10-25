@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class LookAheadRegex {
 
 		public static void main(String[] args) throws URISyntaxException {
-			String string1 = "helloboombasticfou";
+			String string1 = "helloboombasticfoubar";
 			String string2 = "helloboombarsticfoo";
 			String regex = "(?=.*bastic)(?!.*foo)";
 			String regex2 = "(?!.*bastic)(?=.*foo)";
