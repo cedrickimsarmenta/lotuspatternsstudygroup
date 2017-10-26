@@ -12,6 +12,7 @@ public class Caretaker {
     public void add(CheckpointMemento state){
         checkpointMementos.add(state);
         System.out.println("Player saved at "+state.getCheckpoint());
+        // i added stuff here for the training :D
     }
 
     public CheckpointMemento pop(){
