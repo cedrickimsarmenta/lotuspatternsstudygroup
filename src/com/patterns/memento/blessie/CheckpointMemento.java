@@ -12,6 +12,7 @@ public class CheckpointMemento {
     }
 
     public String getCheckpoint() {
+        // other changes happened at master branch!
         return checkpoint;
     }
 }
